@@ -67,4 +67,18 @@ internal class WallServiceTest {
         )
         assertEquals(false, wallservice.update(theSecondPost))
     }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrowOK() {
+        val wallservice = WallService()
+        var comment = Comment (postID = 1, attachment = theFirstAttach)
+        wallservice.createComment(comment)
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrowNotOK() {
+        val wallservice = WallService()
+        var comment = Comment (postID = 10, attachment = theFirstAttach)
+        wallservice.createComment(comment)
+    }
 }
