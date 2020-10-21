@@ -39,6 +39,10 @@ fun main() {
     println(wallservice.update(theFirstPost))
     println(theFirstPost)
 
+    var comment = Comment (postID = 10, attachment = theFirstAttach)
+    wallservice.createComment(comment)
+    println(comment)
+
 
 
 }
